@@ -3,7 +3,7 @@
 
 Introduction
 -------------
-This is the initial introduction to learn CUDA. I used a lot of references to learn the basics about CUDA, all of them are included in the file **00_References.pdf**. 
+This is an introduction to learn CUDA. I used a lot of references to learn the basics about CUDA, all of them are included in the file **00_References.pdf**. 
 There is a pdf file that contains the basic theory to start programming in CUDA, as well as a source code to practice the theory explained and its solution.
 
 -------------

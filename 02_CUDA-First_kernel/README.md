@@ -7,8 +7,11 @@ This is an introduction to learn CUDA. I used a lot of references to learn the b
 
 -------------
 
-List of files
+Details
 -------------
+
+####List of files
+
 > * **00_References.pdf** list of references used for the presentation.
 > * **02_First kernel.pdf** theory to solve the practice.
 > * **Source_code/01simple_kernel/01simple_kernel.cu**  example.
@@ -16,10 +19,26 @@ List of files
 > * **Source_code/02simple_kernel2/01simple_kernel2.cu**  example.
 > * **Source_code/02simple_kernel/makefile**  to compile and to execute..
 
--------------
 
-Running the scripts
--------------
+####Description of the exercise
+
+During the presentation, there are some examples and practices. For the examples, it is just necessary to do what is described in the **Running the scripts** section. For the practices, it is required to implement some sections of the code.
+
+The **_P** and the **_S** in the scripts' name mean *practice* and *solution* respectively. Try to complete the practice and compare it with the solution at the end.
+
+It is not mandatory to create the source code from scratch, the file contains certain sections that need to be completed. The following example shows a line with the sentence **// -:YOUR CODE HERE:- **. This indicates that you have to complete the code *just in that section* avoiding removing the other parts of the code.
+
+
+```
+//Do the add vector operation
+int* add(int *a, int *b, int *result, int N){
+
+	// -:YOUR CODE HERE:-
+}
+```
+
+####Running the scripts
+
 
 **NOTE**: All the codes have been tested in linux environments. A makefile is used to generate the execution file, you can see the makefile's description here [Wiki](http://en.wikipedia.org/wiki/Makefile) and here [GNU make](https://www.gnu.org/software/make/manual/make.html#Introduction).
 
@@ -36,9 +55,10 @@ $make run
 ./exe
 Hello, World!
 ```
+
 -------------
 
-Installation
+Installation of CUDA
 -------------
 
 

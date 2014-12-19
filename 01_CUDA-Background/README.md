@@ -7,19 +7,34 @@ This is an introduction to learn CUDA. I used a lot of references to learn the b
 
 -------------
 
-List of files
--------------
-> * **00_References.pdf** list of references used for the presentation.
-> * **01_Background.pdf** theory to solve the practice.
-> * **Source_code/00add_P.cu** script for practice.
-> * **Source_code/00add_S.cu** solution of the practice.
-
-**NOTE**: The **_P** and the **_S** in the scripts' name mean *practice* and *solution* respectively. Try to complete the practice and compare it with the solution at the end.
-
+Details 
 -------------
 
-Running the scripts
--------------
+####List of files
+
+> * **00_References.pdf** list of references used for the presentation
+> * **01_Background.pdf** theory to solve the practice
+> * **Source_code/00add_P.cu** script for practice
+> * **Source_code/00add_S.cu** solution of the practice
+
+
+####Description of the exercise
+
+The **_P** and the **_S** in the scripts' name mean *practice* and *solution* respectively. Try to complete the practice and compare it with the solution at the end.
+
+It is not necessary to create the source code from scratch, the file contains certain sections that need to be completed. The following example shows a line with the sentence **// -:YOUR CODE HERE:- **. This indicates that you have to complete the code *just in that section* avoiding removing the other parts of the code.
+
+
+```
+//Do the add vector operation
+int* add(int *a, int *b, int *result, int N){
+
+	// -:YOUR CODE HERE:-
+}
+```
+
+####Running the scripts
+
 
 **NOTE**: All the codes have been tested in linux environments. The command **nvcc** is used to compile CUDA source files, it is similar to the command **gcc** used to compile *C* source codes.
 
@@ -37,7 +52,7 @@ $./exe
 ```
 -------------
 
-Installation
+Installation of CUDA
 -------------
 
 
@@ -57,12 +72,12 @@ References
 >* **Programming Massively Parallel Processors, Second Edition: A Hands- on Approach**. David B. Kirk , Wen-mei W. Hwu
 
 ####Courses
->* [Udacity:](https://www.udacity.com/course/cs344) Introduction to Parallel Programming.
+>* [Udacity:](https://www.udacity.com/course/cs344) Introduction to Parallel Programming
 >* [Coursera:](https://www.coursera.org/course/hetero) Heterogeneous Parallel Programming
 
 ####Websites
 
->* [Dr. Dobbs: ](http://www.drdobbs.com/parallel/cuda-supercomputing-for-the-masses-part/207200659) CUDA, Supercomputing for the Masses.
+>* [Dr. Dobbs: ](http://www.drdobbs.com/parallel/cuda-supercomputing-for-the-masses-part/207200659) CUDA, Supercomputing for the Masses
 >* [Livermore Computing:](https://computing.llnl.gov/?set=training&page=index) High performance computing training
 >* [Parallel for all:](http://devblogs.nvidia.com/parallelforall/) Nvidia developer zone
 

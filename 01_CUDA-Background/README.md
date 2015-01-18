@@ -19,6 +19,8 @@ Details
 
 ####Description of the exercise
 
+During the presentation, there are some examples and practices. For the examples, it is just necessary to do what is described in the **Running the scripts** section. For the practices, it is required to implement some sections of the code.
+
 The **_P** and the **_S** in the scripts' name mean *practice* and *solution* respectively. Try to complete the practice and compare it with the solution at the end.
 
 It is not necessary to create the source code from scratch, the file contains certain sections that need to be completed. The following example shows a line with the sentence **// -:YOUR CODE HERE:- **. This indicates that you have to complete the code *just in that section* avoiding removing the other parts of the code.

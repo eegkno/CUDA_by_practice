@@ -12,7 +12,6 @@ Details
 
 ####List of files
 
-> * **00_References.pdf** list of references used for the presentation.
 > * **02_First kernel.pdf** theory to solve the practice.
 > * **Source_code/01simple_kernel/01simple_kernel.cu**  example.
 > * **Source_code/01simple_kernel/makefile**  to compile and to execute.

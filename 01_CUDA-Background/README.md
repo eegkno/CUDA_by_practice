@@ -12,7 +12,6 @@ Details
 
 ####List of files
 
-> * **00_References.pdf** list of references used for the presentation
 > * **01_Background.pdf** theory to solve the practice
 > * **Source_code/00add_P.cu** script for practice
 > * **Source_code/00add_S.cu** solution of the practice

@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.375673.svg)](https://doi.org/10.5281/zenodo.375673)
+
 CUDA by practice
 ===================
 
@@ -77,4 +79,4 @@ References
 
 -------------
 
-This document was last modified on : Feb. 22nd, 2015.
+This document was last modified on : March. 7, 2017.

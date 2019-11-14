@@ -64,8 +64,8 @@ void onHost(){
 	int i,j,k=0;
 	int h_a[N][N], h_b[N][N];
 
-	for(i = 0; i < N; i++){
-		for(j = 0; j < N; j++){
+	for(int i = 0; i < N; i++){
+		for(int j = 0; j < N; j++){
 			h_a[i][j] = k;
 			h_b[i][j] = 0;
 			k++;

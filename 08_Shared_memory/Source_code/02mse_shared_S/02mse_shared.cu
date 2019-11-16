@@ -1,6 +1,7 @@
 #include "Error.h"
 #include "Vector.h"
 #include "GpuTimer.h"
+#include <assert.h>
 
 #define N   16
 #define BLOCK_SIZE 2
@@ -114,10 +115,21 @@ void test(){
     onDevice(h_a, h_b, h_c);
 
      // verify that the GPU did the work we requested
+    float d_mse = 0, h_mse = 0;
     for (int i=0; i<4; i++) {
+            d_mse += h_c.getElement(i);
             printf( " [%i] = %f \n", i, h_c.getElement(i) );
     }
+    d_mse /= N;
+    printf("mse from device: %f\n", d_mse);
 
+    for (int i=0; i<N; i++) {
+            h_mse += POW(h_a.getElement(i) - h_b.getElement(i));
+    }
+    h_mse /= N;
+    printf("mse from host: %f\n", h_mse);
+
+    assert(d_mse == h_mse);
 
     printf("-: successful execution :-\n");
 
@@ -132,4 +144,3 @@ int main( void ) {
         test();
     	return 0;
 }
-

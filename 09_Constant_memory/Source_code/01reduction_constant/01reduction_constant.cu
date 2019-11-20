@@ -1,6 +1,7 @@
 #include "Error.h"
 #include "GpuTimer.h"
 #include "Vector.h"
+#include <assert.h>
 
 //check the constant memory amount
 
@@ -110,15 +111,23 @@ void test(){
 
     // call device configuration
     onDevice(h_a, h_b, h_c);
-
-    float finalValue=0.0;
+    float d_dot_result = 0.0;
 
      // verify that the GPU did the work we requested
     for (int i=0; i<BLOCKS; i++) {
-          finalValue += h_c.getElement(i);
+          d_dot_result += h_c.getElement(i);
     }
 
-    printf( "Dot result = %f \n", finalValue);
+    printf( "Dot result from device = %f \n", d_dot_result);
+
+    float h_dot_result = 0.0;
+    for (int i=0; i<N; i++) {
+          h_dot_result += h_a.getElement(i) * h_b.getElement(i);
+    }
+
+    printf( "Dot result from host = %f \n", h_dot_result);
+
+    assert(d_dot_result == h_dot_result);
 
     printf("-: successful execution :-\n");
 

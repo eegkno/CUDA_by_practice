@@ -19,9 +19,9 @@ __global__ void histo_kernel( Vector<unsigned int> d_a, Vector<int> d_histo ) {
     int tmp =0;
     while (i < SIZE) {
         tmp = d_a.getElement(i); 
-        //The kernel serialize the memory accees in order to avoid the threads 
-        //trying to write at the same time y the same locality which implies
-        //a log line of threas wating to work
+        //The kernel serializes the memory access in order to avoid the threads 
+        //trying to write the same location at the same time which implies
+        //a long line of threads waiting to work
         atomicAdd( &d_histo.elements[tmp], 1 );
         i += stride;
     }

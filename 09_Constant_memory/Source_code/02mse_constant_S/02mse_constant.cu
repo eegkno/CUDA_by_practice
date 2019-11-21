@@ -1,6 +1,7 @@
 #include "Error.h"
 #include "Vector.h"
 #include "GpuTimer.h"
+#include <assert.h>
 
 #define N   16
 #define BLOCK_SIZE 2
@@ -102,9 +103,9 @@ void test(){
     h_b.length = N;
     h_c.length = 4;    
 
-    h_a.elements = (float*)malloc(  h_a.length * sizeof(int) );
-    h_b.elements = (float*)malloc(  h_a.length * sizeof(int) );
-    h_c.elements = (float*)malloc(  4 * sizeof(int) );
+    h_a.elements = (float*)malloc(  h_a.length * sizeof(float) );
+    h_b.elements = (float*)malloc(  h_a.length * sizeof(float) );
+    h_c.elements = (float*)malloc(  4 * sizeof(float) );
 
 
     int i,j = 16, k=1;
@@ -121,10 +122,20 @@ void test(){
     onDevice(h_a, h_b, h_c);
 
      // verify that the GPU did the work we requested
+    float d_mse = 0;
     for (int i=0; i<4; i++) {
             printf( " [%i] = %f \n", i, h_c.getElement(i) );
+            d_mse += h_c.getElement(i);
     }
+    printf("MSE from device: %f\n", d_mse/N);
 
+    float h_mse = 0;
+    for (int i=0; i<N; i++) {
+            h_mse += POW(h_a.getElement(i) - h_b.getElement(i));
+    }
+    printf("MSE from host: %f\n", h_mse/N);
+
+    assert(d_mse == h_mse);
 
     printf("-: successful execution :-\n");
 
@@ -139,4 +150,3 @@ int main( void ) {
         test();
     	return 0;
 }
-

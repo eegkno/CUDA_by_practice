@@ -2,6 +2,7 @@
 #include "common/Vector.h"
 #include "common/GpuTimer.h"
 #include "common/Lock.h"
+#include <assert.h>
 
 #define N   (32 * 1024)
 #define THREADS 256
@@ -104,7 +105,7 @@ void onDevice( Vector<float> h_a, Vector<float> h_b, float &h_dotValue ){
 
 void onHost(){
 
-    float h_dotValue = 0.0f;
+    float d_dotValue = 0.0f;
 
     Vector<float> h_a, h_b;
     h_a.length = N;
@@ -122,9 +123,19 @@ void onHost(){
     }
 
     // call device configuration
-    onDevice(h_a, h_b, h_dotValue);
+    onDevice(h_a, h_b, d_dotValue);
 
-    printf("Dot result %.2f\n", h_dotValue);
+    printf("Dot result from device %.2f\n", d_dotValue);
+
+
+    float h_dotValue = 0.0f;
+    for( i = 0; i < h_a.length; i++){
+            h_dotValue += h_a.getElement(i) * h_b.getElement(i);
+    }
+
+    printf("Dot result from host %.2f\n", h_dotValue);
+
+    assert(d_dotValue == h_dotValue);
 
     printf("-: successful execution :-\n");
 

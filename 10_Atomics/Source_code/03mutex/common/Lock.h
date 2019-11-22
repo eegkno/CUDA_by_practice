@@ -16,7 +16,7 @@ struct Lock {
     }
 
     __device__ void lock( void ) {
-    //every thread is waiting to get the mutex, once tha a thread won the mutex, it changes 
+    //every thread is waiting to get the mutex, once a thread won the mutex, it changes 
     //the value to 1    
         while( atomicCAS( mutex, 0, 1 ) != 0 );
     }

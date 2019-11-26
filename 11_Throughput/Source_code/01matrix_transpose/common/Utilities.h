@@ -4,7 +4,7 @@
 #include <stdio.h>     
 
 
-void bandwith(int n, float time){
+void bandwidth(int n, float time){
 
 	cudaDeviceProp  prop;
 

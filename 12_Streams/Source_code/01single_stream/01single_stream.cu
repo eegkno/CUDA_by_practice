@@ -73,7 +73,7 @@ void onDevice(Vector<float> h_a, Vector<float> h_b)
 
 	HANDLER_ERROR_MSG("kernel panic!!!"); 	
 	
-	cudaThreadSynchronize(); 
+	cudaDeviceSynchronize(); 
 	
 
 	functionKernel2<<< DIMGRID, DIMBLOCK, 0, stream1  >>>(d_b, N);

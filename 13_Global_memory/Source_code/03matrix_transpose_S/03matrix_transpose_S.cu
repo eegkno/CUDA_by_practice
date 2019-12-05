@@ -104,19 +104,15 @@ void onDevice( Matrix<int> h_a, Matrix<int> h_b ){
 void onHost(){
 
 
-	Matrix<int> h_a, h_b, h_c;
+	Matrix<int> h_a, h_b;
 	h_a.width = N;
 	h_a.height = N;
 
 	h_b.width = N;
 	h_b.height = N;
 
-	h_c.width = N;
-	h_c.height = N;
-
-	h_a.elements = (int*)malloc(h_a.width  * h_b.height  * sizeof(int));
+	h_a.elements = (int*)malloc(h_a.width  * h_a.height  * sizeof(int));
 	h_b.elements = (int*)malloc(h_b.width  * h_b.height  * sizeof(int));
-	h_c.elements = (int*)malloc(h_b.width  * h_b.height  * sizeof(int));
 
 
 	int i,j,k=0;
@@ -131,7 +127,7 @@ void onHost(){
 
 
     // call device configuration
-	onDevice(h_a,h_c);
+	onDevice(h_a,h_b);
 
 
     printf("-: successful execution :-\n");
@@ -143,4 +139,3 @@ int main(){
 
 	onHost();
 }
-

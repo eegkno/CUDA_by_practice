@@ -101,7 +101,7 @@ void onDevice(Vector<float> h_a, Vector<float> h_b)
 		*/
 
 
-	    // copy the locked memory to the device, async
+	    // copy from the device to the locked memory, async
 	    HANDLER_ERROR_ERR( cudaMemcpyAsync( h_a.elements+i, d_a.elements, ARRAY_BYTES,
 	    	 							cudaMemcpyDeviceToHost, stream1 ) );
 

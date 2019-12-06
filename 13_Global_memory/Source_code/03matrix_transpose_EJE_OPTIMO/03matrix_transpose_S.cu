@@ -72,24 +72,20 @@ void onDevice( Matrix<int> h_a, Matrix<int> h_b ){
 }
 
 void onHost(){
-	Matrix<int> h_a, h_b, h_c;
+	Matrix<int> h_a, h_b;
 	h_a.width = N;
 	h_a.height = N;
 
 	h_b.width = N;
 	h_b.height = N;
 
-	h_c.width = N;
-	h_c.height = N;
-
 	HANDLER_ERROR_ERR( cudaSetDeviceFlags(cudaDeviceMapHost) );
 
-	HANDLER_ERROR_ERR(cudaHostAlloc((void**)&h_a.elements, h_a.width  * h_b.height  * sizeof(int), 
+	HANDLER_ERROR_ERR(cudaHostAlloc((void**)&h_a.elements, h_a.width  * h_a.height  * sizeof(int), 
     								cudaHostAllocWriteCombined | cudaHostAllocMapped ));
-    HANDLER_ERROR_ERR(cudaHostAlloc((void**)&h_c.elements, h_b.width  * h_b.height  * sizeof(int), 
+    HANDLER_ERROR_ERR(cudaHostAlloc((void**)&h_b.elements, h_b.width  * h_b.height  * sizeof(int), 
     								cudaHostAllocWriteCombined | cudaHostAllocMapped ));
 
-	h_b.elements = (int*)malloc(h_b.width  * h_b.height  * sizeof(int));
 
 	int i,j,k=0;
 
@@ -101,14 +97,14 @@ void onHost(){
 		}
 	}
     // call device configuration
-	onDevice(h_a,h_c);
+	onDevice(h_a,h_b);
 
 
     printf("-: successful execution :-\n");
 
     // free host memory 
     HANDLER_ERROR_ERR(cudaFreeHost( h_a.elements ));
-    HANDLER_ERROR_ERR(cudaFreeHost( h_c.elements ));
+    HANDLER_ERROR_ERR(cudaFreeHost( h_b.elements ));
 }
 
 
@@ -116,4 +112,3 @@ int main(){
 
 	onHost();
 }
-

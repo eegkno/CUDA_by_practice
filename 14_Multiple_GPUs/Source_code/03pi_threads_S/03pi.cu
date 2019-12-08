@@ -15,7 +15,7 @@ void *threadRoutine(void *param) {
 	double height;
 	double x;
 
-	for (i= (*threadId) * partialInterval, partialStore[*threadId]=0.0 ; i< (partialInterval* (*threadId+1)); i++, x+=base) {
+	for (i= (*threadId) * partialInterval, partialStore[*threadId]=0.0 ; i< (partialInterval* (*threadId+1)); i++) {
 		x = i * base;
 		height = 4/( 1 + x * x);
 		partialStore[*threadId] += base * height;
@@ -59,7 +59,7 @@ void calculatePIHostSingle(){
 
 
 
-	for (i=0, store=0.0, x=0.0; i<intervals; i++, x+=base) {
+	for (i=0, store=0.0, x=0.0; i<intervals; i++) {
 		x = i * base;
 		height = 4/(1 + x * x);
 		store += base * height;

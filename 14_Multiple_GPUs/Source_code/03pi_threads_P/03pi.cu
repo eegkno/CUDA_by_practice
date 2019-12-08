@@ -30,7 +30,7 @@ void calculatePIHostSingle(){
 	int intervals=100000000;
 	base=(double)(1.0/intervals);
 
-	for (i=0, store=0.0, x=0.0; i<intervals; i++, x+=base) {
+	for (i=0, store=0.0, x=0.0; i<intervals; i++) {
 		x = i * base;
 		height = 4/(1 + x * x);
 		store += base * height;

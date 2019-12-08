@@ -73,7 +73,7 @@ void addMutiple(Vector<float> h_a, Vector<float> h_b, Vector<float> h_mout){
 	for(int i = 0; i < data[0].size; i++)
 		h_mout.elements[i]  = data[0].out[i];
 
-	for(int i = 16, j = 0; i < data[1].size*2; i++, j++)
+	for(int i = N/THREADS, j = 0; i < data[1].size*2; i++, j++)
 		h_mout.elements[i]  = data[1].out[j];
 
 }
@@ -94,8 +94,8 @@ void run(){
 	Vector<float> h_a, h_b, h_sout, h_mout ;
     h_a.length = N;
     h_b.length = N;
-    h_sout.length = N/THREADS; 
-    h_mout.length = N/THREADS; 
+    h_sout.length = N; 
+    h_mout.length = N; 
 
 
     h_a.elements = (float*)malloc(  ARRAY_BYTES );
